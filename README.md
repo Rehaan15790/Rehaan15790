@@ -3,6 +3,8 @@
 First-year B.Tech student in Artificial Intelligence & Data Science. I build
 local-first AI systems — voice interfaces, LLM tooling, and the security around them.
 
+[LinkedIn](https://www.linkedin.com/in/rehaan-taherbhoy-5b59ab426/)
+
 ## Featured — [ultron](https://github.com/Rehaan15790/ultron)
 
 [![tests](https://github.com/Rehaan15790/ultron/actions/workflows/tests.yml/badge.svg)](https://github.com/Rehaan15790/ultron/actions/workflows/tests.yml)
