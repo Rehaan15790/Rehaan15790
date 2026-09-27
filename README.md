@@ -38,6 +38,3 @@ security decision.
 ![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
 
-## Up next
-
-Sentence-chunked TTS streaming for ultron — cutting time-to-first-audio from ~6s to ~2s.
