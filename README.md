@@ -9,7 +9,7 @@
 First-year B.Tech student in Artificial Intelligence & Data Science.
 I build local-first AI systems — voice interfaces, LLM tooling, and the security around them.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Rehaan_Taherbhoy-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rehaan-taherbhoy-5b59ab426/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Rehaan_Taherbhoy-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rehaantaherbhoy/)
 [![GitHub](https://img.shields.io/badge/GitHub-Rehaan15790-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Rehaan15790)
 
 ## Focus
