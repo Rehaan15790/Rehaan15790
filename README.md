@@ -12,15 +12,9 @@
   <a href="https://github.com/Rehaan15790?tab=repositories"><img alt="GitHub: Rehaan15790" src="assets/badges/github.svg"></a>
 </p>
 
-```text
-rehaan@github ~ $ whoami --verbose
-┌─[ REHAAN TAHERBHOY ]───────────────────────────────────────────┐
-│ study     B.Tech, Artificial Intelligence & Data Science, yr 1 │
-│ builds    local-first AI: voice, LLM tooling, agents           │
-│ cares     the security around them                             │
-│ writes    Python · Go · JavaScript · TypeScript                │
-└────────────────────────────────────────────────────────────────┘
-```
+<p align="center">
+  <img src="assets/cards/terminal.svg" alt="Terminal. whoami: Rehaan Taherbhoy; studies B.Tech, Artificial Intelligence and Data Science, year 1; builds local-first AI: voice, LLM tooling, agents; cares about the security around them; writes Python, Go, JavaScript, TypeScript. Focus: safe AI agents, LLM agents behind approval gates, sandboxes and audit logs. Local voice AI, voice assistants that run on my machine with faster-whisper and Ollama. ML basics, learning the maths, Python and training models from scratch. Data viz and 3D, making scientific data explorable in 3D." width="100%">
+</p>
 
 ## Projects
 
@@ -75,12 +69,6 @@ rehaan@github ~ $ whoami --verbose
 <p align="center">
   <img src="assets/cards/heatmap.svg" alt="Contribution activity over the last year" width="100%">
 </p>
-
-## Focus
-
-- **Local-first AI.** Models, speech and data stay on the machine.
-- **AI security.** Sandboxing, prompt-injection defences, permission gates, audit trails.
-- **Data and visualisation.** Turning scientific data into something you can explore.
 
 ## Stack
 
