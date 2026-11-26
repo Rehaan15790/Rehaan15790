@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="22" viewBox="0 0 119.8 22" role="img" aria-label="open: the app">
+<title>open: the app</title>
+<defs>
+<linearGradient id="fire" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff4500"/><stop offset="100%" stop-color="#ff8c00"/></linearGradient>
+<clipPath id="c"><rect width="119.8" height="22" rx="6"/></clipPath>
+</defs>
+<g clip-path="url(#c)" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace" font-size="11" font-weight="700" letter-spacing="0.8">
+<rect width="48.8" height="22" fill="#0a0000"/>
+<rect x="48.8" width="71.0" height="22" fill="url(#fire)"/>
+
+<text x="10" y="14.8" fill="#ff8c61" textLength="28.8" lengthAdjust="spacingAndGlyphs">OPEN</text>
+<text x="58.8" y="14.8" fill="#140300" textLength="51.0" lengthAdjust="spacingAndGlyphs">the app</text>
+</g>
+<rect x=".5" y=".5" width="118.8" height="21" rx="5.5" fill="none" stroke="#ff4500" stroke-opacity=".8"/>
+</svg>

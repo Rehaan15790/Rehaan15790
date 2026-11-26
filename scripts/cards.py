@@ -6,13 +6,22 @@ from datetime import date
 from pathlib import Path
 
 USER = os.environ.get("GH_USER", "Rehaan15790")
-OUT = Path(__file__).resolve().parent.parent / "assets" / "cards"
+HERE = Path(__file__).resolve().parent
+ASSETS = HERE.parent / "assets"
+ICONS = json.loads((HERE / "icons.json").read_text())
 W = 860
 SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
 MONO = "ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace"
 HEAT = ["#ffffff", "#5c1a08", "#a32800", "#ff4500", "#ffb000"]
 LEVEL = {"NONE": 0, "FIRST_QUARTILE": 1, "SECOND_QUARTILE": 2, "THIRD_QUARTILE": 3, "FOURTH_QUARTILE": 4}
 ACCENTS = ["#ff4500", "#ff8c00", "#ffd166", "#ff6b35"]
+STACK = [
+    ("Languages", [("Python", "python"), ("Go", "go"), ("JavaScript", "javascript"), ("TypeScript", "typescript"), ("HTML5", "html5")]),
+    ("AI & voice", [("Ollama", "ollama"), ("faster-whisper", "wave"), ("ElevenLabs", "elevenlabs"), ("FastAPI", "fastapi")]),
+    ("Web & 3D", [("React", "react"), ("Next.js", "nextdotjs"), ("three.js", "threedotjs")]),
+    ("Data & infra", [("NumPy", "numpy"), ("PostgreSQL", "postgresql"), ("SQLite", "sqlite"), ("Docker", "docker"),
+                      ("pytest", "pytest"), ("GitHub Actions", "githubactions"), ("Git", "git")]),
+]
 
 QUERY = """
 query($login: String!) {
@@ -31,6 +40,7 @@ query($login: String!) {
       }
     }
   }
+  release: repository(owner: $login, name: "ultron") { latestRelease { tagName } }
 }
 """
 
@@ -82,6 +92,83 @@ def card(h, title, sub, body, aside=""):
 <rect x=".5" y=".5" width="{W - 1}" height="{h - 1}" rx="19.5" fill="none" stroke="#ff4500" stroke-opacity=".62"/>
 </svg>
 '''
+
+
+def text_w(s, size, spacing):
+    return len(s) * (size * 0.6 + spacing) - spacing
+
+
+def icon(name, x, y, size, color):
+    if name == "linkedin":
+        return (f'<rect x="{x}" y="{y}" width="{size}" height="{size}" rx="{size * .18:.1f}" fill="{color}"/>'
+                f'<text x="{x + size / 2:.1f}" y="{y + size * .8:.1f}" text-anchor="middle" font-size="{size * .78:.1f}" '
+                f'font-family="{SANS}" font-weight="900" letter-spacing="0" fill="#0a0000">in</text>')
+    if name == "wave":
+        bars = [(3, 9), (7, 5), (11, 2), (15, 6), (19, 10)]
+        return "".join(f'<rect x="{x + bx * size / 24:.1f}" y="{y + by * size / 24:.1f}" width="{size * 2.4 / 24:.1f}" '
+                       f'height="{size * (24 - 2 * by) / 24:.1f}" rx="{size / 24:.1f}" fill="{color}"/>' for bx, by in bars)
+    return (f'<svg x="{x}" y="{y}" width="{size}" height="{size}" viewBox="0 0 24 24">'
+            f'<path d="{ICONS[name]}" fill="{color}"/></svg>')
+
+
+def badge(label, value, icon_name=None, h=22):
+    fs, ls = (12, 1) if h >= 28 else (11, .8)
+    lw, vw = text_w(label.upper(), fs, ls), text_w(value, fs, ls)
+    isz = round(h * .5)
+    lx = 10 + (isz + 7 if icon_name else 0)
+    split = lx + lw + 10
+    w = split + vw + 20
+    ty = h / 2 + fs * .35
+    alt = html.escape(f"{label}: {value}")
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w:.0f}" height="{h}" viewBox="0 0 {w:.1f} {h}" role="img" aria-label="{alt}">
+<title>{alt}</title>
+<defs>
+<linearGradient id="fire" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff4500"/><stop offset="100%" stop-color="#ff8c00"/></linearGradient>
+<clipPath id="c"><rect width="{w:.1f}" height="{h}" rx="6"/></clipPath>
+</defs>
+<g clip-path="url(#c)" font-family="{MONO}" font-size="{fs}" font-weight="700" letter-spacing="{ls}">
+<rect width="{split:.1f}" height="{h}" fill="#0a0000"/>
+<rect x="{split:.1f}" width="{w - split:.1f}" height="{h}" fill="url(#fire)"/>
+{icon(icon_name, 10, (h - isz) / 2, isz, "#ff6b35") if icon_name else ""}
+<text x="{lx}" y="{ty:.1f}" fill="#ff8c61" textLength="{lw:.1f}" lengthAdjust="spacingAndGlyphs">{html.escape(label.upper())}</text>
+<text x="{split + 10:.1f}" y="{ty:.1f}" fill="#140300" textLength="{vw:.1f}" lengthAdjust="spacingAndGlyphs">{html.escape(value)}</text>
+</g>
+<rect x=".5" y=".5" width="{w - 1:.1f}" height="{h - 1}" rx="5.5" fill="none" stroke="#ff4500" stroke-opacity=".8"/>
+</svg>
+'''
+
+
+def stack_card():
+    body, y, n = [], 108, 0
+    for group, tools in STACK:
+        body.append(f'<text x="46" y="{y + 20}" class="mono" font-size="11" font-weight="800" letter-spacing="1.6" '
+                    f'fill="#ff8c61">{html.escape(group.upper())}</text>')
+        x = 190
+        for name, ic in tools:
+            tw = text_w(name, 12, .5)
+            cw = 12 + 14 + 8 + tw + 14
+            if x + cw > W - 46:
+                x, y = 190, y + 40
+            body.append(
+                f'<g class="in" style="animation-delay:{n * 40}ms">'
+                f'<rect x="{x}" y="{y}" width="{cw:.1f}" height="30" rx="15" fill="#fff" fill-opacity=".055" stroke="#ff4500" stroke-opacity=".6"/>'
+                f'{icon(ic, x + 12, y + 8, 14, "#ff6b35")}'
+                f'<text x="{x + 34}" y="{y + 19.5}" class="mono" font-size="12" font-weight="700" letter-spacing=".5" fill="#fff1e8" '
+                f'textLength="{tw:.1f}" lengthAdjust="spacingAndGlyphs">{html.escape(name)}</text></g>'
+            )
+            x, n = x + cw + 10, n + 1
+        y += 48
+    return card(y + 30, "Stack", "Tools I build with", "".join(body))
+
+
+def render_static():
+    return {
+        "cards/stack": stack_card(),
+        "badges/linkedin": badge("LinkedIn", "Rehaan Taherbhoy", "linkedin", 30),
+        "badges/github": badge("GitHub", USER, "github", 30),
+        "badges/sih": badge("SIH 2026", "PS 26067"),
+        "badges/open-app": badge("open", "the app"),
+    }
 
 
 def cell(x, y, level):
@@ -168,14 +255,17 @@ def heatmap_card(cal, longest):
     return card(262, "Contributions", sub, "".join(months) + "".join(cols), legend)
 
 
-def render(u):
+def render(data):
+    u = data["user"]
     cal = u["contributionsCollection"]["contributionCalendar"]
     days = [d for w in cal["weeks"] for d in w["contributionDays"]]
     current, longest = streaks(days)
+    tag = ((data.get("release") or {}).get("latestRelease") or {}).get("tagName", "none")
     return {
-        "stats": stats_card(u, cal, current, longest),
-        "languages": languages_card(u),
-        "heatmap": heatmap_card(cal, longest),
+        "cards/stats": stats_card(u, cal, current, longest),
+        "cards/languages": languages_card(u),
+        "cards/heatmap": heatmap_card(cal, longest),
+        "badges/ultron-release": badge("release", tag, "github"),
     }
 
 
@@ -189,14 +279,20 @@ def fetch():
         body = json.load(r)
     if body.get("errors"):
         raise SystemExit(body["errors"])
-    return body["data"]["user"]
+    return body["data"]
 
 
 def main():
-    OUT.mkdir(parents=True, exist_ok=True)
-    for name, svg in render(fetch()).items():
-        (OUT / f"{name}.svg").write_text(svg, encoding="utf-8")
-        print(f"wrote assets/cards/{name}.svg")
+    files = render_static()
+    if os.environ.get("GITHUB_TOKEN"):
+        files |= render(fetch())
+    else:
+        print("GITHUB_TOKEN not set: drawing only the cards and badges that need no GitHub data")
+    for name, svg in files.items():
+        path = ASSETS / f"{name}.svg"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(svg, encoding="utf-8")
+        print(f"wrote assets/{name}.svg")
 
 
 if __name__ == "__main__":
