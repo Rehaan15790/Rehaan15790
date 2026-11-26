@@ -2,44 +2,112 @@
   <title id="title">Rehaan Taherbhoy</title>
   <desc id="desc">B.Tech AI and Data Science. Local-first AI, voice, LLM tooling and the security around them.</desc>
   <style>
-    .sans { font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; }
     .mono { font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; }
-    .cursor { animation: blink 1.1s steps(1, end) infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-    @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+    .orb-a { animation: float-a 9s ease-in-out infinite; }
+    .orb-b { animation: float-b 11s ease-in-out infinite 1.1s; }
+    .orb-c { animation: float-c 13s ease-in-out infinite .6s; }
+    .ring { animation: ring 8s ease-in-out infinite; }
+    .ring-b { animation: ring 10s ease-in-out infinite 1.6s; }
+    .cursor { animation: blink 1.1s step-end infinite; }
+    .chip { animation: chip .7s ease-out both; }
+    .ember { animation: rise linear infinite; }
+    @keyframes float-a { 0%,100% { transform: translate(0,0); opacity: .58; } 50% { transform: translate(40px,-24px); opacity: .9; } }
+    @keyframes float-b { 0%,100% { transform: translate(0,0); opacity: .42; } 50% { transform: translate(-36px,20px); opacity: .74; } }
+    @keyframes float-c { 0%,100% { transform: translate(0,0); opacity: .34; } 50% { transform: translate(24px,-14px); opacity: .62; } }
+    @keyframes ring { 0%,100% { opacity: .1; } 50% { opacity: .32; } }
+    @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+    @keyframes chip { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes rise { 0% { transform: translateY(0); opacity: 0; } 12% { opacity: .9; } 100% { transform: translateY(-330px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .orb-a, .orb-b, .orb-c, .ring, .ring-b, .cursor, .chip, .ember { animation: none; } .ember { opacity: 0; } }
   </style>
   <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="54%" stop-color="#280000"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="o0"><stop offset="0%" stop-color="#ff4500" stop-opacity=".72"/><stop offset="58%" stop-color="#ff4500" stop-opacity=".18"/><stop offset="100%" stop-color="#ff4500" stop-opacity="0"/></radialGradient>
+    <radialGradient id="o1"><stop offset="0%" stop-color="#ff8c00" stop-opacity=".5"/><stop offset="58%" stop-color="#ff8c00" stop-opacity=".18"/><stop offset="100%" stop-color="#ff8c00" stop-opacity="0"/></radialGradient>
+    <radialGradient id="o2"><stop offset="0%" stop-color="#ffd166" stop-opacity=".6"/><stop offset="58%" stop-color="#ffd166" stop-opacity=".16"/><stop offset="100%" stop-color="#ffd166" stop-opacity="0"/></radialGradient>
+    <radialGradient id="o3"><stop offset="0%" stop-color="#cc0000" stop-opacity=".72"/><stop offset="58%" stop-color="#cc0000" stop-opacity=".18"/><stop offset="100%" stop-color="#cc0000" stop-opacity="0"/></radialGradient>
+    <linearGradient id="fire" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff4500"/>
+      <stop offset="60%" stop-color="#ff8c00"/>
+      <stop offset="100%" stop-color="#ffd166"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff6b35" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#ff4500" stop-opacity=".8"/>
+      <stop offset="100%" stop-color="#ff8c61" stop-opacity="0"/>
+    </linearGradient>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
-    </pattern>
-    <pattern id="stripes" width="36" height="48" patternUnits="userSpaceOnUse" patternTransform="skewX(-45)">
-      <rect width="18" height="48" fill="#ff1e2d"/>
+      <path d="M32 0H0V32" fill="none" stroke="#ff6b35" stroke-opacity=".05"/>
     </pattern>
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="7"/>
     </filter>
+    <clipPath id="clip"><rect width="1280" height="400" rx="28"/></clipPath>
   </defs>
 
-  <rect width="1280" height="400" fill="#050505"/>
-  <rect width="1280" height="352" fill="url(#grid)"/>
-  <polygon points="960,0 1120,0 920,352 760,352" fill="#ff1e2d" fill-opacity="0.08"/>
-  <polygon points="1150,0 1190,0 990,352 950,352" fill="#ff1e2d" fill-opacity="0.05"/>
+  <g clip-path="url(#clip)">
+    <rect width="1280" height="400" fill="url(#bg)"/>
+    <rect width="1280" height="400" fill="url(#grid)"/>
+    <ellipse class="orb-a" cx="200" cy="60" rx="320" ry="150" fill="url(#o0)"/>
+    <ellipse class="orb-b" cx="980" cy="70" rx="360" ry="140" fill="url(#o1)"/>
+    <ellipse class="orb-c" cx="720" cy="380" rx="460" ry="110" fill="url(#o2)"/>
+    <ellipse class="orb-b" cx="1240" cy="320" rx="260" ry="140" fill="url(#o3)"/>
 
-  <rect x="96" y="92" width="160" height="160" rx="18" fill="#0c0c0c" stroke="#ff1e2d" stroke-width="3"/>
-  <rect x="96" y="92" width="160" height="160" rx="18" fill="none" stroke="#ff1e2d" stroke-width="3" filter="url(#glow)" stroke-opacity="0.6"/>
-  <path d="M130 140l36 32-36 32" fill="none" stroke="#ff1e2d" stroke-width="14" stroke-linecap="square"/>
-  <rect class="cursor" x="180" y="196" width="46" height="12" fill="#f4f4f4"/>
+    <circle class="ring" cx="1140" cy="200" r="28" fill="none" stroke="#ff6b35" stroke-opacity=".5"/>
+    <circle class="ring-b" cx="1140" cy="200" r="48" fill="none" stroke="#ff6b35" stroke-opacity=".36"/>
+    <circle class="ring" cx="1140" cy="200" r="72" fill="none" stroke="#ff6b35" stroke-opacity=".24"/>
+    <g>
+      <circle cx="1188" cy="200" r="4" fill="#ff4500"/>
+      <animateTransform attributeName="transform" type="rotate" from="0 1140 200" to="360 1140 200" dur="9s" repeatCount="indefinite"/>
+    </g>
+    <g>
+      <circle cx="1212" cy="200" r="3" fill="#ffd166"/>
+      <animateTransform attributeName="transform" type="rotate" from="360 1140 200" to="0 1140 200" dur="14s" repeatCount="indefinite"/>
+    </g>
 
-  <g class="sans" font-size="68" font-weight="900">
-    <text x="300" y="186" textLength="840" lengthAdjust="spacing"><tspan fill="#f4f4f4">REHAAN</tspan><tspan fill="#ff1e2d"> TAHERBHOY</tspan></text>
+    <g>
+      <circle class="ember" cx="140" cy="390" r="2" fill="#ff8c00" style="animation-duration:7s"/>
+      <circle class="ember" cx="260" cy="400" r="1.5" fill="#ffd166" style="animation-duration:9s;animation-delay:2s"/>
+      <circle class="ember" cx="380" cy="395" r="2.5" fill="#ff4500" style="animation-duration:8s;animation-delay:4s"/>
+      <circle class="ember" cx="500" cy="400" r="1.5" fill="#ff8c00" style="animation-duration:10s;animation-delay:1s"/>
+      <circle class="ember" cx="610" cy="392" r="2" fill="#ffd166" style="animation-duration:7.5s;animation-delay:3s"/>
+      <circle class="ember" cx="720" cy="400" r="2.5" fill="#ff4500" style="animation-duration:9.5s;animation-delay:5s"/>
+      <circle class="ember" cx="830" cy="396" r="1.5" fill="#ff8c00" style="animation-duration:8.5s;animation-delay:.5s"/>
+      <circle class="ember" cx="940" cy="400" r="2" fill="#ffd166" style="animation-duration:11s;animation-delay:2.5s"/>
+      <circle class="ember" cx="1040" cy="394" r="2.5" fill="#ff4500" style="animation-duration:7s;animation-delay:4.5s"/>
+      <circle class="ember" cx="1160" cy="400" r="1.5" fill="#ff8c00" style="animation-duration:9s;animation-delay:1.5s"/>
+      <circle class="ember" cx="70" cy="398" r="1.5" fill="#ffd166" style="animation-duration:10s;animation-delay:6s"/>
+      <circle class="ember" cx="1230" cy="396" r="2" fill="#ff4500" style="animation-duration:8s;animation-delay:3.5s"/>
+    </g>
+
+    <rect x="36" y="36" width="1208" height="328" rx="24" fill="#08080c" fill-opacity=".5" stroke="#ff4500" stroke-opacity=".55"/>
+
+    <rect x="96" y="104" width="160" height="160" rx="22" fill="#0c0303" stroke="#ff4500" stroke-width="3"/>
+    <rect x="96" y="104" width="160" height="160" rx="22" fill="none" stroke="#ff4500" stroke-width="3" stroke-opacity=".7" filter="url(#glow)"/>
+    <path d="M130 152l36 32-36 32" fill="none" stroke="url(#fire)" stroke-width="14" stroke-linecap="square"/>
+    <rect class="cursor" x="180" y="208" width="46" height="12" fill="#ffd166"/>
+
+    <text x="300" y="104" class="sans" font-size="14" font-weight="800" letter-spacing="3" fill="#ff8c61">@REHAAN15790</text>
+    <path d="M300 116 C420 92 560 92 680 118" fill="none" stroke="url(#shine)" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+    <text x="298" y="180" class="sans" font-size="68" font-weight="900" textLength="760" lengthAdjust="spacingAndGlyphs"><tspan fill="#fff1e8">REHAAN</tspan><tspan fill="url(#fire)"> TAHERBHOY</tspan></text>
+    <text x="302" y="216" class="sans" font-size="17" font-weight="600" fill="#ff8c61" textLength="640" lengthAdjust="spacing">B.TECH ARTIFICIAL INTELLIGENCE &amp; DATA SCIENCE · YEAR ONE</text>
+
+    <g class="mono" font-size="13" font-weight="700" fill="#ff6b35">
+      <g class="chip" style="animation-delay:0ms"><rect x="300" y="236" width="150" height="30" rx="15" fill="#ffffff" fill-opacity=".055" stroke="#ff4500" stroke-opacity=".68"/><text x="375" y="256" text-anchor="middle">LOCAL-FIRST AI</text></g>
+      <g class="chip" style="animation-delay:90ms"><rect x="464" y="236" width="90" height="30" rx="15" fill="#ffffff" fill-opacity=".055" stroke="#ff4500" stroke-opacity=".68"/><text x="509" y="256" text-anchor="middle">VOICE</text></g>
+      <g class="chip" style="animation-delay:180ms"><rect x="568" y="236" width="130" height="30" rx="15" fill="#ffffff" fill-opacity=".055" stroke="#ff4500" stroke-opacity=".68"/><text x="633" y="256" text-anchor="middle">LLM TOOLING</text></g>
+      <g class="chip" style="animation-delay:270ms"><rect x="712" y="236" width="130" height="30" rx="15" fill="#ffffff" fill-opacity=".055" stroke="#ff4500" stroke-opacity=".68"/><text x="777" y="256" text-anchor="middle">AI SECURITY</text></g>
+      <g class="chip" style="animation-delay:360ms"><rect x="856" y="236" width="110" height="30" rx="15" fill="#ffffff" fill-opacity=".055" stroke="#ff4500" stroke-opacity=".68"/><text x="911" y="256" text-anchor="middle">DATA VIZ</text></g>
+    </g>
+
+    <path d="M96 300H1184" stroke="url(#shine)" stroke-width="1.5"/>
+    <text x="96" y="334" class="mono" font-size="14" font-weight="700" letter-spacing="1.5"><tspan fill="#ff4500">$</tspan><tspan fill="#ff8c61"> ls projects/</tspan><tspan fill="#fff1e8" fill-opacity=".85">  belphegor  ultron  oceanlens-3d  productivity-app</tspan></text>
+    <text x="1184" y="334" text-anchor="end" class="mono" font-size="12" font-weight="600" fill="#ff8c61" fill-opacity=".55">github.com/Rehaan15790</text>
   </g>
-  <text x="304" y="232" class="sans" font-size="17" font-weight="600" fill="#8c8c8c" textLength="720" lengthAdjust="spacing">B.TECH AI &amp; DATA SCIENCE · LOCAL-FIRST AI · AI SECURITY</text>
-
-  <text x="304" y="294" class="mono" font-size="20" textLength="96" lengthAdjust="spacingAndGlyphs"><tspan fill="#ff1e2d">$</tspan><tspan fill="#f4f4f4"> whoami</tspan></text>
-  <rect class="cursor" x="406" y="277" width="11" height="21" fill="#ff1e2d"/>
-
-  <rect y="352" width="1280" height="48" fill="#050505"/>
-  <rect y="352" width="1280" height="48" fill="url(#stripes)"/>
-  <rect x="96" y="362" width="548" height="28" fill="#050505"/>
-  <text x="112" y="382" class="sans" font-size="14" font-weight="700" fill="#ff1e2d" textLength="516" lengthAdjust="spacing">BELPHEGOR / ULTRON / OCEANLENS 3D / PRODUCTIVITY</text>
+  <rect x=".75" y=".75" width="1278.5" height="398.5" rx="27.5" fill="none" stroke="#ff4500" stroke-opacity=".62" stroke-width="1.5"/>
 </svg>
