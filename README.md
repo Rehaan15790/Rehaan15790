@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/cards/terminal.svg" alt="Terminal. whoami: Rehaan Taherbhoy; studies B.Tech, Artificial Intelligence and Data Science, year 1; builds local-first AI: voice, LLM tooling, agents; cares about the security around them; writes Python, Go, JavaScript, TypeScript. Focus: local-first AI, models, speech and data stay on the machine. AI security, sandboxing, prompt-injection defences, permission gates. Data and visualisation, turning scientific data into something you can explore." width="100%">
+  <img src="assets/cards/terminal.svg" alt="Terminal. whoami: Rehaan Taherbhoy; studies B.Tech, Artificial Intelligence and Data Science, year 1; builds local-first AI: voice, LLM tooling, agents; cares about the security around them; writes Python, Go, JavaScript, TypeScript. Focus: safe AI agents, LLM agents behind approval gates, sandboxes and audit logs. Local voice AI, voice assistants that run on my machine with faster-whisper and Ollama. ML basics, learning the maths, Python and training models from scratch. Data viz and 3D, making scientific data explorable in 3D." width="100%">
 </p>
 
 ## Projects

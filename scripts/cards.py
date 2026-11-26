@@ -31,15 +31,17 @@ TERMINAL = [
         ("writes", "Python · Go · JavaScript · TypeScript"),
     ]),
     ("cat focus.txt", [
-        ("local-first AI", "models, speech and data stay on the machine"),
-        ("AI security", "sandboxing, prompt-injection defences, permission gates"),
-        ("data + viz", "turning scientific data into something you can explore"),
+        ("safe AI agents", "LLM agents behind approval gates, sandboxes and audit logs"),
+        ("local voice AI", "voice assistants that run on my machine: faster-whisper + Ollama"),
+        ("ML basics", "learning the maths, Python and training models from scratch"),
+        ("data viz + 3D", "making scientific data explorable in 3D"),
     ]),
 ]
+CHIPS = ["SAFE AI AGENTS", "LOCAL VOICE AI", "ML BASICS", "DATA VIZ + 3D"]
 BANNER_LINES = [
     ("whoami", "rehaan · b.tech ai & data science · year one"),
     ("ls projects/", "belphegor/ ultron/ oceanlens-3d/ productivity-app/"),
-    ("cat focus.txt", "local-first AI · AI security · data viz"),
+    ("cat focus.txt", "safe AI agents · local voice AI · ML basics · data viz"),
 ]
 
 QUERY = """
@@ -229,7 +231,11 @@ def banner():
               (1040, 2.5, "#ff4500", 7, 4.5), (1160, 1.5, "#ff8c00", 9, 1.5), (70, 1.5, "#ffd166", 10, 6), (1230, 2, "#ff4500", 8, 3.5)]
     ember_svg = "".join(f'<circle class="ember" cx="{ex}" cy="398" r="{r}" fill="{c}" style="animation-duration:{d}s;animation-delay:{dl}s"/>'
                         for ex, r, c, d, dl in embers)
-    chips = [("LOCAL-FIRST AI", 300, 150), ("VOICE", 464, 90), ("LLM TOOLING", 568, 130), ("AI SECURITY", 712, 130), ("DATA VIZ", 856, 110)]
+    chips, cx = [], 300
+    for t in CHIPS:
+        w = round(text_w(t, 13)) + 40
+        chips.append((t, cx, w))
+        cx += w + 14
     chip_svg = "".join(
         f'<g class="chip" style="animation-delay:{i * 90}ms"><rect class="wave" style="animation-delay:{1 + i * .15:.2f}s" x="{cx}" y="236" width="{w}" height="30" rx="15" '
         f'fill="#fff" fill-opacity=".055" stroke="#ff4500" stroke-opacity=".68"/><text x="{cx + w / 2:.0f}" y="256" text-anchor="middle">{t}</text></g>'
