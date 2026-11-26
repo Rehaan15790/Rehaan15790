@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="354" viewBox="0 0 860 354" role="img" aria-label="Languages">
+<title>Languages</title>
+<style>
+text { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; }
+.mono { font-family: ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace; }
+.orb-a { animation: fa 9s ease-in-out infinite; }
+.orb-b { animation: fb 11s ease-in-out infinite 1.1s; }
+.orb-c { animation: fc 13s ease-in-out infinite .6s; }
+.in { animation: in .6s ease-out both; }
+.grow { animation: grow 1.1s ease-out both; transform-box: fill-box; transform-origin: left; }
+@keyframes fa { 50% { transform: translate(28px,-18px); opacity: .9; } }
+@keyframes fb { 50% { transform: translate(-24px,16px); opacity: .75; } }
+@keyframes fc { 50% { transform: translate(18px,-10px); opacity: .6; } }
+@keyframes in { from { opacity: 0; transform: translateY(6px); } }
+@keyframes grow { from { transform: scaleX(0); } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#000"/><stop offset="54%" stop-color="#280000"/><stop offset="100%" stop-color="#000"/></linearGradient>
+<linearGradient id="fire" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff4500"/><stop offset="60%" stop-color="#ff8c00"/><stop offset="100%" stop-color="#ffd166"/></linearGradient>
+<radialGradient id="o0"><stop offset="0%" stop-color="#ff4500" stop-opacity="0.72"/><stop offset="58%" stop-color="#ff4500" stop-opacity=".18"/><stop offset="100%" stop-color="#ff4500" stop-opacity="0"/></radialGradient><radialGradient id="o1"><stop offset="0%" stop-color="#ff8c00" stop-opacity="0.5"/><stop offset="58%" stop-color="#ff8c00" stop-opacity=".18"/><stop offset="100%" stop-color="#ff8c00" stop-opacity="0"/></radialGradient><radialGradient id="o2"><stop offset="0%" stop-color="#ffd166" stop-opacity="0.6"/><stop offset="58%" stop-color="#ffd166" stop-opacity=".18"/><stop offset="100%" stop-color="#ffd166" stop-opacity="0"/></radialGradient><radialGradient id="o3"><stop offset="0%" stop-color="#cc0000" stop-opacity="0.72"/><stop offset="58%" stop-color="#cc0000" stop-opacity=".18"/><stop offset="100%" stop-color="#cc0000" stop-opacity="0"/></radialGradient>
+<clipPath id="clip"><rect width="860" height="354" rx="20"/></clipPath>
+</defs>
+<g clip-path="url(#clip)">
+<rect width="860" height="354" fill="url(#bg)"/>
+<ellipse class="orb-a" cx="140" cy="40" rx="220" ry="110" fill="url(#o0)" opacity=".6"/>
+<ellipse class="orb-b" cx="660" cy="50" rx="240" ry="100" fill="url(#o1)" opacity=".45"/>
+<ellipse class="orb-c" cx="480" cy="354" rx="320" ry="80" fill="url(#o2)" opacity=".35"/>
+<ellipse class="orb-b" cx="840" cy="304" rx="180" ry="100" fill="url(#o3)" opacity=".45"/>
+<rect x="26" y="26" width="808" height="302" rx="20" fill="#08080c" fill-opacity=".5" stroke="#ff4500" stroke-opacity=".55"/>
+<text x="46" y="64" font-size="28" font-weight="800" fill="url(#fire)">Languages</text>
+<text x="48" y="88" font-size="13" font-weight="600" letter-spacing="1.2" fill="#ff8c61">Share of code across my public repositories</text>
+<g class="in" style="animation-delay:0ms"><circle cx="52" cy="125" r="5" fill="#e34c26"/><text x="66" y="130" font-size="14" font-weight="700" fill="#fff1e8">HTML</text><text x="300" y="130" text-anchor="end" class="mono" font-size="13" font-weight="700" fill="#ff8c61">54.9%</text><rect x="324" y="120" width="490" height="8" rx="4" fill="#fff" fill-opacity=".07"/><rect class="grow" style="animation-delay:0ms" x="324" y="120" width="269.0" height="8" rx="4" fill="url(#fire)"/></g><g class="in" style="animation-delay:90ms"><circle cx="52" cy="159" r="5" fill="#00ADD8"/><text x="66" y="164" font-size="14" font-weight="700" fill="#fff1e8">Go</text><text x="300" y="164" text-anchor="end" class="mono" font-size="13" font-weight="700" fill="#ff8c61">22.5%</text><rect x="324" y="154" width="490" height="8" rx="4" fill="#fff" fill-opacity=".07"/><rect class="grow" style="animation-delay:90ms" x="324" y="154" width="110.4" height="8" rx="4" fill="url(#fire)"/></g><g class="in" style="animation-delay:180ms"><circle cx="52" cy="193" r="5" fill="#3178c6"/><text x="66" y="198" font-size="14" font-weight="700" fill="#fff1e8">TypeScript</text><text x="300" y="198" text-anchor="end" class="mono" font-size="13" font-weight="700" fill="#ff8c61">11.5%</text><rect x="324" y="188" width="490" height="8" rx="4" fill="#fff" fill-opacity=".07"/><rect class="grow" style="animation-delay:180ms" x="324" y="188" width="56.2" height="8" rx="4" fill="url(#fire)"/></g><g class="in" style="animation-delay:270ms"><circle cx="52" cy="227" r="5" fill="#3572A5"/><text x="66" y="232" font-size="14" font-weight="700" fill="#fff1e8">Python</text><text x="300" y="232" text-anchor="end" class="mono" font-size="13" font-weight="700" fill="#ff8c61">6.7%</text><rect x="324" y="222" width="490" height="8" rx="4" fill="#fff" fill-opacity=".07"/><rect class="grow" style="animation-delay:270ms" x="324" y="222" width="32.8" height="8" rx="4" fill="url(#fire)"/></g><g class="in" style="animation-delay:360ms"><circle cx="52" cy="261" r="5" fill="#f1e05a"/><text x="66" y="266" font-size="14" font-weight="700" fill="#fff1e8">JavaScript</text><text x="300" y="266" text-anchor="end" class="mono" font-size="13" font-weight="700" fill="#ff8c61">3.4%</text><rect x="324" y="256" width="490" height="8" rx="4" fill="#fff" fill-opacity=".07"/><rect class="grow" style="animation-delay:360ms" x="324" y="256" width="16.9" height="8" rx="4" fill="url(#fire)"/></g><g class="in" style="animation-delay:450ms"><circle cx="52" cy="295" r="5" fill="#336790"/><text x="66" y="300" font-size="14" font-weight="700" fill="#fff1e8">PLpgSQL</text><text x="300" y="300" text-anchor="end" class="mono" font-size="13" font-weight="700" fill="#ff8c61">0.5%</text><rect x="324" y="290" width="490" height="8" rx="4" fill="#fff" fill-opacity=".07"/><rect class="grow" style="animation-delay:450ms" x="324" y="290" width="3.0" height="8" rx="4" fill="url(#fire)"/></g>
+</g>
+<rect x=".5" y=".5" width="859" height="353" rx="19.5" fill="none" stroke="#ff4500" stroke-opacity=".62"/>
+</svg>
