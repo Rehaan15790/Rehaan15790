@@ -68,14 +68,16 @@ rehaan@github ~ $ whoami --verbose
 ## GitHub activity
 
 <p align="center">
-  <img src="https://www.gitskins.com/api/section/stats?username=Rehaan15790&theme=satan&style=aura" alt="GitHub stats: stars, contributions, repositories and followers" width="100%">
+  <img src="assets/cards/stats.svg" alt="GitHub stats: contributions, streak, stars and repositories" width="100%">
 </p>
 <p align="center">
-  <img src="https://www.gitskins.com/api/section/stack?username=Rehaan15790&theme=satan&style=aura" alt="Languages used across repositories" width="100%">
+  <img src="assets/cards/languages.svg" alt="Languages used across my public repositories" width="100%">
 </p>
 <p align="center">
-  <img src="https://www.gitskins.com/api/section/heatmap?username=Rehaan15790&theme=satan&style=aura" alt="Contribution activity over the last year" width="100%">
+  <img src="assets/cards/heatmap.svg" alt="Contribution activity over the last year" width="100%">
 </p>
+
+<p align="center"><sub>Cards are drawn by <a href="scripts/cards.py">scripts/cards.py</a> and refreshed daily by a GitHub Action.</sub></p>
 
 ## Focus
 
